@@ -20,12 +20,17 @@
  ******************************************************************************************/
 #include "MainWindow.h"
 #include "Game.h"
+#include "Vec2.h"
+#include "RectF.h"
 
-Game::Game( MainWindow& wnd )
+Game::Game(MainWindow& wnd)
 	:
-	wnd( wnd ),
-	gfx( wnd )
+	wnd(wnd),
+	gfx(wnd),
+	ball(Vec2(Graphics::ScreenWidth / 2, float(Graphics::ScreenHeight / 2)), 7.0f),
+	walls(.0f, float(Graphics::ScreenWidth), .0f, float(Graphics::ScreenHeight))
 {
+
 }
 
 void Game::Go()
@@ -38,8 +43,12 @@ void Game::Go()
 
 void Game::UpdateModel()
 {
+	float dt = fm.Mark();
+	ball.Update(dt);
+	ball.TestWallsCollision(walls);
 }
 
 void Game::ComposeFrame()
 {
+	ball.Draw(gfx);
 }
