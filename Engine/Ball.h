@@ -15,7 +15,7 @@ public:
 
 private:
 	Vec2 pos; //position
-	Vec2 vel = Vec2(1.0f, .0f); //velocity
+	Vec2 vel = Vec2(1.0f, 1.0f); //velocity
 	float radius;
-	float speed = 120.0f;
+	static constexpr float speed = 60.0f * 4;
 };

@@ -42,8 +42,8 @@ void Ball::Update(float dt)
 void Ball::Draw(Graphics & gfx) const
 {
 	SpriteCodex::DrawBall(pos, gfx);
-	gfx.DrawRect(GetRect(), Colors::Red);
-	gfx.PutPixel(pos.x, pos.y, Colors::Blue);
+	//gfx.DrawRect(GetRect(), Colors::Red);
+	//gfx.PutPixel(pos.x, pos.y, Colors::Blue);
 }
 
 RectF Ball::GetRect() const
